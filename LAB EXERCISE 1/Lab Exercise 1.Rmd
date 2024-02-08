@@ -1,0 +1,60 @@
+---
+title: "Lab Exercise 1"
+author: "Meigelyn Joy Matias"
+date: "2024-02-08"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+install.packages("tidyverse")
+install.packages("dplyr")
+install.packages("rvest")
+install.packages("httr")
+install.packages("polite")
+install.packages("ggplot2")
+library(tidyverse)
+library(rvest)
+library(dplyr)
+library(polite)
+library(httr)
+library(ggplot2)
+
+link <- "https://www.amazon.sg/s?bbn=6314273051&rh=n%3A6314273051&dc&qid=1707357685&ref=lp_6408988051_ex_n_1"
+session <- bow(link, user_agent= "Educational Purposes")
+session
+```
+
+```{r}
+name <- character(100)
+price <- character(100)
+peoples_vote <- character(50)
+episodes <- character(50)
+year <- character(50)
+
+link <- "https://www.amazon.sg/s?bbn=6314273051&rh=n%3A6314273051&dc&qid=1707357685&ref=lp_6408988051_ex_n_1"
+session <- bow(link, user_agent= "Educational Purposes")
+session
+ 
+#NAME
+product <- scrape(session) %>%
+  html_nodes("span.a-size-base.a-color-base") %>%
+  html_text()
+product[1:100]
+
+#PRICE
+price <- scrape(session) %>%
+  html_nodes("span.a-price-whole") %>%
+  html_text()
+price[1:100]
+
+#Ratings
+ratings <- scrape(session) %>%
+  html_nodes("span.a-size-mini.a-color-tertiary") %>%
+  html_text()
+
+ratings[1:100]
+```
