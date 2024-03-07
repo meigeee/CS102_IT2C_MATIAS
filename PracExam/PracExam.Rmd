@@ -1,0 +1,93 @@
+---
+title: "PracExam"
+author: "Meigelyn Joy Matias"
+date: "2024-03-07"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+
+#A
+data ("warpbreaks")
+
+
+#1. Find out, in a single command, which columns of warpbreaks are either numeric or integer.
+numeric_col <- sapply(warpbreaks, is.numeric)
+numeric_col
+
+
+
+#2. How many observations does it have?
+num_observations <- nrow(warpbreaks)
+num_observations
+
+
+
+#3. Is numeric a natural data type for the columns which are stored as such? Convert to integer when necessary.
+integer_col <- sapply(warpbreaks, is.integer) 
+integer_col
+
+numeric_or_integer_columns <- warpbreaks[, numeric_col | integer_col] 
+numeric_or_integer_columns
+
+
+
+#4. Error messages in R sometimes report the underlying type of an object rather than the user-level class. Derive from the following code and error message what the\ underlying type. Explain what is the error all about. Do not just copy the error message that was displayed.
+
+#for (i in 1:ncol(numeric_or_integer_columns)) {
+#if (!is.integer(numeric_or_integer_columns[, i])) {
+    #numeric_or_integer_columns[, i] <- as.integer(numeric_or_integer_columns[, i]) 
+  #} 
+#}
+
+#The given code tries to loop through each column in `numeric_or_integer_columns` and convert any non-integer columns to integers using `as.integer()`. However, the code contains a syntax error because `numeric_or_integer_columns` is not a defined variable, which would cause an error since R doesn't know which object to iterate over.
+
+```
+
+```{r}
+#B
+
+#1. Read the complete file using readLines.
+lines <- readLines("exampleFile.txt")
+
+
+#2. Separate the vector of lines into a vector containing comments and a vector containing the data. Hint: use grepl.
+comments<- lines[grepl("^//", lines)]
+comments
+
+datalines <- lines[!grepl("^//", lines)]
+datalines
+
+#3.Extract the date from the first comment line and display on the screen “It was created data.”
+date <- gsub("^// Survey data. Created : ", "It was created data ", comments[1])
+date
+
+#4a. Split the character vectors in the vector containing data lines by semicolon (;) using strsplit.
+splitdata <- strsplit(datalines, ";")
+splitdata
+
+#4b. Find the maximum number of fields retrieved by split. Append rows that are shorter with NA's.
+maxfields <- max(sapply(splitdata, length))
+maxfields
+
+splitdata <- lapply(splitdata, function(x) c(x, rep(NA, maxfields - length(x))))
+splitdata
+
+#4c. Use unlist and matrix to transform the data to row-column format.
+datamatrix <- matrix(unlist(splitdata), ncol = maxfields, byrow = TRUE)
+datamatrix
+
+#4d. From comment lines 2-4, extract the names of the fields. Set these as colnames for the matrix you just created.
+
+fieldNames <- gsub("^// Field [0-9]+: ", "", comments[2:4])
+fieldNames
+
+colnames(datamatrix) <- fieldNames
+colnames(datamatrix)
+```
