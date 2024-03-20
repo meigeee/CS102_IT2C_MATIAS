@@ -1,0 +1,106 @@
+---
+title: "Lab Exer2"
+output: html_document
+date: "2024-03-10"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+SCRAPING FOR 50
+
+product1 - Thayers Witch Hazel Facial Gentle Rose Petal Toner Lotion with Organic Aloe Vera, 355ml
+```{r}
+
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product1 <- data.frame()
+
+for (page in 1:5) {
+  link1 <- paste0("https://www.amazon.co.uk/Thayers-Facial-Gentle-Lotion-Organic/product-reviews/B007HD570Q/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session1 <- bow(link1, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session1) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Thayers Witch Hazel Facial Gentle Rose Petal Toner Lotion with Organic Aloe Vera, 355ml"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product1 <- rbind(product1, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product1)
+
+```
+
+
+product2 - Glow Recipe Watermelon Glow PHA + BHA Toner - Gentle Face Exfoliating Toner & Pore Minimizer with Hyaluronic Acid + Cactus Water for Hydrated, Supple Skin, Vegan, Cruelty Free Tea Tree Toner (150ml)
+```{r}
+
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product2 <- data.frame()
+
+for (page in 1:5) {
+  link2 <- paste0("https://www.amazon.com/Glow-Recipe-Watermelon-Pore-Tight-Facial/product-reviews/B087MW23C3/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session2 <- bow(link2, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session2) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Glow Recipe Watermelon Glow PHA + BHA Toner - Gentle Face Exfoliating Toner & Pore Minimizer with Hyaluronic Acid + Cactus Water for Hydrated, Supple Skin, Vegan, Cruelty Free Tea Tree Toner (150ml)"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product2 <- rbind(product2, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product2)
+
+```
+
+
