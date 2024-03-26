@@ -909,3 +909,455 @@ for (page in 1:5) {
 
 #View(product20)
 ```
+
+product21 - HUAWEI Matebook 16s EVO - 16 Inch Laptop - Windows 11 Intel Core i9 13th Gen Processor With 16GB RAM & 1TB SSD Storage - 2.5K True Colour Touch Display with Long Lasting Battery - Space Grey
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product21 <- data.frame()
+
+for (page in 1:5) {
+  link21 <- paste0("https://www.amazon.co.uk/HUAWEI-Matebook-16s-EVO-Processor/product-reviews/B0C53QZRMV/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session21 <- bow(link21, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session21) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "HUAWEI Matebook 16s EVO - 16 Inch Laptop - Windows 11 Intel Core i9 13th Gen Processor With 16GB RAM & 1TB SSD Storage - 2.5K True Colour Touch Display with Long Lasting Battery - Space Grey"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product21 <- rbind(product21, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product21)
+```
+
+product22 - ASUS Chromebook 11 CR1100 11.6 HD Laptop with 3 Year Warranty (Intel Celeron N4500, 4GB RAM, 64GB eMMC, Google Chrome Operating System) Includes 3 Year ASUS warranty
+
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product22 <- data.frame()
+
+for (page in 1:5) {
+  link22 <- paste0("https://www.amazon.co.uk/ASUS-Chromebook-Warranty-Operating-warranty/product-reviews/B0BLH32QHR/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session22 <- bow(link22, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session22) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "ASUS Chromebook 11 CR1100 11.6 HD Laptop with 3 Year Warranty (Intel Celeron N4500, 4GB RAM, 64GB eMMC, Google Chrome Operating System) Includes 3 Year ASUS warranty"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product22 <- rbind(product22, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product22)
+```
+product23 -Samsung Galaxy Book3 360 Wi-Fi Laptop, 15.6 Inch, 13th gen Intel Core i5 Processor, 8GB RAM, 256GB Storage, Graphite - Official
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product23 <- data.frame()
+
+for (page in 1:5) {
+  link23 <- paste0("https://www.amazon.co.uk/Samsung-Galaxy-Processor-Storage-Graphite/product-reviews/B0BQRS5RFG/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session23 <- bow(link23, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session23) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Samsung Galaxy Book3 360 Wi-Fi Laptop, 15.6 Inch, 13th gen Intel Core i5 Processor, 8GB RAM, 256GB Storage, Graphite - Official"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product23 <- rbind(product23, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product23)
+```
+
+product24 - Acer Predator Helios 300 Gaming Laptop, Intel i7-11800H, NVIDIA GeForce RTX 3060 6GB, 15.6 FHD 144Hz 3ms IPS Display, 16GB DDR4, 512GB NVMe SSD, WiFi 6, American English Backlit RGB Keyboard
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product24 <- data.frame()
+
+for (page in 1:5) {
+  link24 <- paste0("https://www.amazon.co.uk/Acer-Predator-i7-11800H-American-Keyboard/product-reviews/B09885WY8V/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session24 <- bow(link24, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session24) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Acer Predator Helios 300 Gaming Laptop, Intel i7-11800H, NVIDIA GeForce RTX 3060 6GB, 15.6 FHD 144Hz 3ms IPS Display, 16GB DDR4, 512GB NVMe SSD, WiFi 6, American English Backlit RGB Keyboard"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product24 <- rbind(product24, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product24)
+```
+
+product25 -Lenovo IdeaPad 3 14 Laptop, Intel Core i3-1005G1 Processor, 4GB DDR4 RAM, 128GB M.2 SSD Storage, 14.0 FHD (1920 x 1080) Display, Integrated Graphics, Windows 10 S, 81WD010QUS, Platinum Grey
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product25 <- data.frame()
+
+for (page in 1:5) {
+  link25 <- paste0("https://www.amazon.co.uk/Lenovo-i3-1005G1-Processor-Integrated-81WD010QUS/product-reviews/B0913FWL3J/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session25 <- bow(link25, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session25) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Lenovo IdeaPad 3 14 Laptop, Intel Core i3-1005G1 Processor, 4GB DDR4 RAM, 128GB M.2 SSD Storage, 14.0 FHD (1920 x 1080) Display, Integrated Graphics, Windows 10 S, 81WD010QUS, Platinum Grey"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product25 <- rbind(product25, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product25)
+```
+
+product26 - HUAWEI MateBook D 14 Laptop,14 inch Ultrabook Eye Comfort FullView Display,1.39kg Sleek Metallic Body,12th Gen Intel Core i5-1240P, 16GB+512GB, Space Grey
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product26 <- data.frame()
+
+for (page in 1:5) {
+  link26 <- paste0("https://www.amazon.co.uk/HUAWEI-MateBook-Ultrabook-FullView-Metallic/product-reviews/B0CKLQT2ZL/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session26 <- bow(link26, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session26) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "HUAWEI MateBook D 14 Laptop,14 inch Ultrabook Eye Comfort FullView Display,1.39kg Sleek Metallic Body,12th Gen Intel Core i5-1240P, 16GB+512GB, Space Grey"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product26 <- rbind(product26, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product26)
+```
+
+product27 -Lenovo IdeaPad 3i Chromebook 11 Inch HD Laptop (Intel Celeron, 4GB RAM, 64GB Storage, Intel UHD Graphics 600, Chrome OS) – Onyx Black
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product27 <- data.frame()
+
+for (page in 1:5) {
+  link27 <- paste0("https://www.amazon.co.uk/Lenovo-Chromebook-Celeron-64GB-Black/product-reviews/B08CNMRFKL/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session27 <- bow(link27, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session27) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Lenovo IdeaPad 3i Chromebook 11 Inch HD Laptop (Intel Celeron, 4GB RAM, 64GB Storage, Intel UHD Graphics 600, Chrome OS) – Onyx Black"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product27 <- rbind(product27, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product27)
+```
+
+product28 - Samsung Galaxy Book Ion 15.6 Inch 8 GB Intel Core i5-10210U Processor Laptop - Aura Silver (UK Version)
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product28 <- data.frame()
+
+for (page in 1:5) {
+  link28 <- paste0("https://www.amazon.co.uk/Samsung-Galaxy-i5-10210U-Processor-Laptop/product-reviews/B088KLM96B/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session28 <- bow(link28, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session28) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Samsung Galaxy Book Ion 15.6 Inch 8 GB Intel Core i5-10210U Processor Laptop - Aura Silver (UK Version)"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product28 <- rbind(product28, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product28)
+```
+
+product29 - ASUS VivoBook 15 - X515JA Full HD 15.6" Laptop (Intel i5-1035G1, 8GB RAM, 256GB SSD, Windows 10)
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product29 <- data.frame()
+
+for (page in 1:5) {
+  link29 <- paste0("https://www.amazon.co.uk/ASUS-VivoBook-15-i5-1035G1-Windows/product-reviews/B08XBRD4C2/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session29 <- bow(link29, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session29) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "ASUS VivoBook 15 - X515JA Full HD 15.6 Laptop (Intel i5-1035G1, 8GB RAM, 256GB SSD, Windows 10)"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product29 <- rbind(product29, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product29)
+```
+
+product30 - Acer Nitro 5 AN517-54-79L1 Gaming Laptop | Intel Core i7-11800H | NVIDIA GeForce RTX 3050Ti Laptop GPU | 17.3 FHD 144Hz IPS Display | 16GB DDR4 | 1TB NVMe SSD | Killer Wi-Fi 6 | Backlit KB | Win 11
+
+```{r}
+library(dplyr)
+library(rvest)
+library(polite)
+library(httr)
+library(selectr)
+
+product30 <- data.frame()
+
+for (page in 1:5) {
+  link30 <- paste0("https://www.amazon.co.uk/Acer-AN517-54-79L1-i7-11800H-GeForce-Display/product-reviews/B09HJKGK5V/ref=cm_cr_dp_d_show_all_btm", page, "?ie=UTF8&reviewerType=all_reviews", page)
+  session30 <- bow(link30, user_agent = "Educational Purpose")
+
+  scrapeNodes <- function(selector) {
+    scrape(session30) %>%
+      html_nodes(selector) %>%
+      html_text(trim = TRUE)
+  }
+
+  productName <- "Acer Nitro 5 AN517-54-79L1 Gaming Laptop | Intel Core i7-11800H | NVIDIA GeForce RTX 3050Ti Laptop GPU | 17.3 FHD 144Hz IPS Display | 16GB DDR4 | 1TB NVMe SSD | Killer Wi-Fi 6 | Backlit KB | Win 11"
+  scrapedTitle <- scrapeNodes("span.a-size-base.review-title.a-color-base.review-title-content.a-text-bold")[1:10]
+  scrapedReviewer <- scrapeNodes("span.a-profile-name")[1:10]
+  scrapedReview <- scrapeNodes("span.a-size-base.review-text.review-text-content")[1:10]
+  scrapedDate <- scrapeNodes("span.a-size-base.a-color-secondary.review-date")[1:10]
+  scrapedRating <- scrapeNodes("span.a-icon-alt")[1:10]
+  scrapedType <- scrapeNodes("span.a-size-mini.a-color-state.a-text-bold")[1:10]
+
+  product30 <- rbind(product30, data.frame(
+    prod_name = productName,
+    title = scrapedTitle,
+    reviewer = scrapedReviewer,
+    review = scrapedReview,
+    date = scrapedDate,
+    ratings = scrapedRating,
+    type_of_purchase = scrapedType
+  ))
+
+  #Sys.sleep(3)
+}
+
+#View(product30)
+```
+
+
